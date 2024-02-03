@@ -13,7 +13,7 @@ const mostBooks = async(req,res)=>{
 const createBook = async(req,res)=>{
 
     const {name,description,author} = req.body
-    console.log(req.file)
+    // console.log(req.file)
     let img = req.file.path
     const results = await bookService.createBookService({name,description,author,img})
     res.status(201).json({

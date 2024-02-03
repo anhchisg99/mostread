@@ -22,7 +22,7 @@ const mostExperts = async (req, res) => {
 }
 const filterPeople = async (req, res) => {
     const {category_id} = req.params
-    console.log(`category: ${category_id}`)
+    // console.log(`category: ${category_id}`)
     const peoples = await peopleService.filterPeopleService(category_id)
     res.status(201).json({
         peoples,
@@ -32,7 +32,7 @@ const filterPeople = async (req, res) => {
 }
 const getPeople = async (req, res) => {
     const {people_id} = req.params
-    console.log(people_id)
+    // console.log(people_id)
     const people = await peopleService.getPeopleService(people_id)
     res.status(201).json({
         people,

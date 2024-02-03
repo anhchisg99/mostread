@@ -73,7 +73,7 @@ class PeopleService {
     }
     filterPeopleService = async (category_id) => {
         try {
-            console.log(`service: ${category_id}`)
+            // console.log(`service: ${category_id}`)
             return await filterPeople(category_id)
         } catch (error) {
             throw new Error("not update people!!")

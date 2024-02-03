@@ -6,7 +6,7 @@ import {
 class ReviewService {
     createReviewSerivce = async (data) => {
         try {
-            console.log(data)
+            // console.log(data)
             return await createReview(data);
         } catch (error) {
             throw new Error("not create review!!")
@@ -15,7 +15,7 @@ class ReviewService {
     }
     getReviewService = async (people_id) => {
         try {
-            console.log(people_id)
+            // console.log(people_id)
             return await getReview(people_id)
         } catch (error) {
             throw new Error("not get review!!")

@@ -3,7 +3,7 @@ import reviewService from "../services/reviewService.js";
 
 const getReview = async(req,res)=>{
     const {people_id} = req.params
-    console.log(`review ${people_id}`)
+    // console.log(`review ${people_id}`)
     const results = await reviewService.getReviewService(people_id)
     res.status(201).json(results)
 }
