@@ -20,10 +20,15 @@ const delBook = async(id)=>{
     const {rows:book} = await pool.query(`delete from book where book_id=$1`,[id])
     return book[0]
 }
+const mostBooks = async()=>{
+    const {rows:books} = await pool.query(`select book.name, book.book_id, count(review) from book inner join review on book.book_id = review.book_id group by book.book_id order by count(review) desc limit 4`)
+    return books
+}
 
 export {
     getAllBooks,
     createBook,
     updateBook,
-    delBook
+    delBook,
+    mostBooks,
 }

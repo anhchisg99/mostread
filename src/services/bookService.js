@@ -2,7 +2,8 @@ import {
     getAllBooks,
     createBook,
     updateBook,
-    delBook
+    delBook,
+    mostBooks,
 } from "../db/book.js";
 
 class BookService {
@@ -45,6 +46,15 @@ class BookService {
 
         }
 
+    }
+    mostBooksService =async()=>{
+        try {
+            
+            return await mostBooks();
+        } catch (error) {
+            throw new Error("not create book!!")
+            
+        }
     }
 }
 export default new BookService

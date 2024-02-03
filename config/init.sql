@@ -8,7 +8,7 @@ create table people (people_id serial not null primary key, name varchar,img var
 
 create table book (book_id serial not null primary key, name varchar,img varchar,description varchar,buy_link varchar);
 
-create table review (review_id serial not null primary key,book_id int,people_id int,CONSTRAINT fk_book foreign key(book_id) references book(book_id),CONSTRAINT fk_people foreign key(people_id) references people(people_id));
+create table review (review_id serial not null primary key,source varchar,book_id int,people_id int,CONSTRAINT fk_book foreign key(book_id) references book(book_id),CONSTRAINT fk_people foreign key(people_id) references people(people_id));
 
 -- insert category
 insert into category(name) values('Actor');
