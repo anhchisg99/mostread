@@ -82,7 +82,7 @@ class PeopleService {
     }
     bookRecommendByPeopleService = async (people_id) => {
         try {
-            console.log(`service: ${people_id}`)
+            // console.log(`service: ${people_id}`)
             return await bookRecommendByPeople(people_id)
         } catch (error) {
             throw new Error("not book recommend !!")

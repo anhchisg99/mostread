@@ -5,8 +5,8 @@ const getAllBooks = async()=>{
     return books
 }
 
-const createBook = async({name,description})=>{
-    const {rows:book} = await pool.query(`insert into book(name,description) values($1,$2)`,[name,description])
+const createBook = async({name,description,author,img})=>{
+    const {rows:book} = await pool.query(`insert into book(name,description,author,img) values($1,$2,$3,$4)`,[name,description,author,img])
     return book[0]
 }
 

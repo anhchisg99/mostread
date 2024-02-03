@@ -1,3 +1,6 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 import express from 'express'
 const port = 3004
 import route from './src/routes/index.js'
