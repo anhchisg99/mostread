@@ -1,7 +1,8 @@
 import pool from '../../config/index.js'
 
 const getAllPeoples = async()=>{
-    const {rows:peoples} = await pool.query(`select * from people`)
+    // const {rows:peoples} = await pool.query(`select * from people`)
+    const {rows:peoples} = await pool.query(`select people.name,people.people_id,count(source) from people inner join review on people.people_id = review.people_id group by people.people_id`)
     return peoples
 }
 
@@ -15,8 +16,8 @@ const updatePeople = async({people_id,name,img,description,category_id})=>{
     return people[0]
 
 }
-const getPeople = async(id) =>{
-    const {rows:product}  = await pool.query(`select * from people where people_id=$1`,[id])
+const getPeople = async(people_id) =>{
+    const {rows:product}  = await pool.query(`select * from people where people_id=$1`,[people_id])
     return product[0]
 }
 const delPeople = async(id)=>{
@@ -27,9 +28,13 @@ const mostExperts = async()=>{
     const {rows:peoples} = await pool.query(`select people.name,people.people_id,count(source) from people inner join review on people.people_id = review.people_id group by people.people_id limit 4`)
     return peoples
 }
-const filterPeople = async(category_id)=>{
+const filterCareer = async(category_id)=>{
     const {rows:peoples} = await pool.query(`select * from people where category_id=$1`,[category_id])
     return peoples
+}
+const bookRecommendByPeople = async(people_id)=>{
+    const { rows:books} = await pool.query(`select book.img,book.name,source from people inner join review on people.people_id = review.people_id inner join book on book.book_id = review.book_id where people.people_id=$1`,[people_id])
+    return books
 }
 export {
     getAllPeoples,
@@ -38,5 +43,6 @@ export {
     getPeople,
     updatePeople,
     mostExperts,
-    filterPeople,
+    bookRecommendByPeople,
+    filterCareer as filterPeople,
 }

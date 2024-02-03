@@ -7,6 +7,7 @@ import {
     updatePeople,
     mostExperts,
     filterPeople,
+    bookRecommendByPeople,
 } from "../db/people.js";
 
 class PeopleService {
@@ -23,6 +24,15 @@ class PeopleService {
 
             return await getAllPeoples();
 
+        } catch (error) {
+            throw new Error("not get  people!!")
+
+        }
+    }
+    getPeopleService = async (people_id) => {
+        try {
+
+            return await getPeople(people_id);
         } catch (error) {
             throw new Error("not get  people!!")
 
@@ -67,6 +77,15 @@ class PeopleService {
             return await filterPeople(category_id)
         } catch (error) {
             throw new Error("not update people!!")
+
+        }
+    }
+    bookRecommendByPeopleService = async (people_id) => {
+        try {
+            console.log(`service: ${people_id}`)
+            return await bookRecommendByPeople(people_id)
+        } catch (error) {
+            throw new Error("not book recommend !!")
 
         }
     }

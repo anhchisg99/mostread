@@ -30,10 +30,30 @@ const filterPeople = async (req, res) => {
     })
 
 }
+const getPeople = async (req, res) => {
+    const {people_id} = req.params
+    console.log(people_id)
+    const people = await peopleService.getPeopleService(people_id)
+    res.status(201).json({
+        people,
+        status: "success"
+    })
+}
+const bookRecommendByPeople = async (req, res) => {
+    const {people_id} = req.params
+    console.log(people_id)
+    const books = await peopleService.bookRecommendByPeopleService(people_id)
+    res.status(201).json({
+        books,
+        status: "success"
+    })
+}
 
 export {
     getAllPeoples,
     updatePeople,
     mostExperts,
     filterPeople,
+    getPeople,
+    bookRecommendByPeople,
 }
