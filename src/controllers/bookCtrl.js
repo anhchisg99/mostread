@@ -10,6 +10,12 @@ const mostBooks = async(req,res)=>{
     res.status(201).json(results)
 
 }
+const updateBook = async(req,res)=>{
+    // const {name,author}
+    const results = await bookService.updateBookService(req.body)
+    res.status(201).json(results)
+
+}
 const createBook = async(req,res)=>{
 
     const {name,description,author} = req.body
@@ -25,4 +31,5 @@ export {
     getAllBooks,
     mostBooks,
     createBook,
+    updateBook,
 }

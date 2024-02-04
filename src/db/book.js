@@ -10,8 +10,8 @@ const createBook = async({name,description,author,img})=>{
     return book[0]
 }
 
-const updateBook = async({name,description,img,buy_link,book_id})=>{
-    const {rows:book} = await pool.query(`update book set name=$1, description=$2, img=$3, buy_link=$4 where book_id=$5`,[name,description,img,buy_link,book_id])
+const updateBook = async({name,author,description,img,buy_link,book_id})=>{
+    const {rows:book} = await pool.query(`update book set name=$1, author=$2,description=$3, img=$4, buy_link=$5 where book_id=$6`,[name,author,description,img,buy_link,book_id])
     return book[0]
 
 }
